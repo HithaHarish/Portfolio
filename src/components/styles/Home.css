@@ -1,0 +1,107 @@
+.home-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    padding: 0 5rem;
+}
+
+.lxgw-marker-gothic-regular {
+    font-family: "LXGW Marker Gothic", sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    font-style: normal; 
+    color: #c390ed;}
+
+.roboto-mono {
+    font-family: "Roboto Mono", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #c8adf9;
+    font-size: 3.5rem;
+}
+
+.animation1 p {
+    border-right: solid rgb(212, 0, 255);
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.animation1 p:nth-child(1) {
+    width: 4.6em;
+    animation: type1 2s steps(10, end);
+    animation-fill-mode: forwards;
+}
+
+.animation1 p:nth-child(2) {
+    width: 7.3em;
+    opacity: 0;
+    animation: type2 4s steps(20, end);
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+}
+
+.animation1 p:nth-child(3) {
+    width: 19em;
+    opacity: 0;
+    animation: type3 5s steps(25, end), blink .5s step-end infinite alternate;
+    animation-delay: 6s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes type1 {
+    0% {
+        width: 0;
+    }
+
+    99.9% {
+        border-right: .15em solid rgb(212, 0, 255);
+    }
+
+    100% {
+        border: none;
+    }
+}
+
+@keyframes type2 {
+    0% {
+        width: 0;
+    }
+
+    1% {
+        opacity: 1;
+    }
+
+    99.9% {
+        border-right: .15em solid rgb(212, 0, 255);
+    }
+
+    100% {
+        opacity: 1;
+        border: none;
+    }
+}
+
+@keyframes type3 {
+    0% {
+        width: 0;
+    }
+
+    1% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
