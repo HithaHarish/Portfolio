@@ -1,0 +1,134 @@
+.skills-title {
+  text-align: center;
+
+  padding-top: 8rem;
+  margin-bottom: 2rem;
+
+  font-family: var(--font-primary); /* Use primary font for titles */
+  font-size: 2.2rem;
+  
+  color: var(--color-primary); /* Use primary color for titles */
+}
+
+.all-skills-wrapper {
+  display: flex;
+  flex-wrap: wrap; /* allows skills to wrap to the next line */
+
+  gap: 1rem; /* between skills */
+  justify-content: center;
+  margin: 5rem; 
+  padding: 2rem; /* padding around the skills section */
+
+}
+
+.skill-card /* Name (text) of each skill card. Example : "javascript" as text. */ {
+
+  padding: 1rem;
+
+  font-family: var(--font-default); /* Use default font for skills */
+
+  color: var(--color-secondary); /* Use the secondary color */
+}
+
+.skill-logo {
+  width: 42px;
+  height: 42px;
+}
+
+/* Tooltip text - text that appears on hover is called tooltip text */
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+
+/* 1200px (Laptops) */
+@media (max-width: 1200px) {
+  .all-skills-wrapper {
+    margin: 1rem;
+    padding: 0rem;
+  }
+  
+  .skills-title {
+    padding-top: 6rem;
+    font-size: 2rem;
+  }
+    
+  .skill-card {
+    min-width: 5px;
+    font-size: 0.8rem;
+  }
+  
+  .skill-logo {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+/* 768px (Tablets) */
+@media (max-width: 768px) {
+  .all-skills-wrapper {
+    margin: 0rem;
+    gap: 0rem;
+  }
+  
+  .skills-title {
+    padding-top: 5rem;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .skill-card {
+    min-width: 5px;
+    font-size: 0.6rem;
+  }
+  
+  .skill-logo {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+/* 480px (Mobile Landscape) */
+@media (max-width: 480px) {
+  .all-skills-wrapper {
+    margin: 2rem;
+    padding: 0.5rem;
+    gap: 0rem;
+  }
+  
+  .skills-title {
+    padding-top: 4rem;
+    font-size: 1.5rem;
+  }
+  
+  .skill-card {
+    min-width: 0px;
+    font-size: 0.6rem;
+  }
+  
+  .skill-logo {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* 360px (Mobile Portrait) */
+@media (max-width: 360px) {
+  .all-skills-wrapper {
+    margin: 1.5rem 0;
+    padding: 0.5rem;
+  }
+  
+  .skills-title {
+    padding-top: 3.5rem;
+    font-size: 1.4rem;
+  }
+  
+  .skill-card {
+    min-width: 10px;
+    font-size: 0.6rem;
+  }
+  
+  .skill-logo {
+    width: 20px;
+    height: 20px;
+  }
+}

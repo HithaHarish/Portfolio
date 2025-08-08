@@ -1,0 +1,299 @@
+.certifications-container {
+    
+    margin: 4rem auto;
+    padding-top: 8rem;
+    align-items: flex-start;
+
+}
+
+.certifications-title {
+  
+    text-align: center;
+
+    margin-bottom: 2rem;
+
+    color: var(--color-primary);
+
+    font-family: var(--font-primary);
+    font-size: 2.2rem;
+
+}
+
+.certifications-row {
+
+    display: flex;
+    flex-wrap: wrap;
+
+    width: auto;
+
+    justify-content: space-between;
+    gap: 8rem; /* Increased space between columns */
+    margin: 0 4rem;
+    padding: 1rem;
+
+    border-bottom: 1px solid black; /* Line under each item */
+
+}
+
+.certifications-left {
+
+    flex: 1; /* grow */
+
+    min-width: 300px;
+
+}
+
+.certifications-role-big {
+    
+    font-family: var(--font-default);
+    font-size: 1.1rem;
+    font-weight: 600;
+
+    color: var(--color-primary);
+
+}
+
+.certifications-center {
+    
+    flex: 1; /* grow */
+    display: flex;
+    flex-direction: row;
+
+    gap: 1rem;
+    align-items: center;
+
+    min-width: 300px;
+
+}
+
+
+.certifications-logo {
+
+    height: 40px;
+    width: auto;
+
+    border-radius: 50%;
+
+}
+
+.certifications-org {
+
+    font-size: 1rem;
+    font-family: var(--font-tertiary);
+
+    color: var(--color-secondary);
+
+}
+
+
+
+.certifications-right {
+    flex: 1;
+
+    min-width: 150px;
+
+    text-align: right;
+
+    font-family: var(--font-tertiary);
+}
+
+.certifications-date {
+
+    font-size: 0.95rem;
+
+    color: var(--color-primary);
+}
+
+/* Responsive Adjustments Only */
+
+/* Tablet Portrait (740px-900px) - Maintains row layout */
+@media (max-width: 1200px) {
+  .certifications-row {
+    gap: 2rem;
+    margin: 0 1.5rem;
+    padding: 0.8rem;
+  }
+  
+  .certifications-left {
+    min-width: 180px;
+    flex: 1.5;
+  }
+  
+  .certifications-center {
+    min-width: 180px;
+    flex: 1.2;
+    gap: 0.8rem;
+  }
+  
+  .certifications-right {
+    min-width: 100px;
+    flex: 1;
+  }
+  
+  .certifications-logo {
+    height: 28px;
+  }
+  
+  .certifications-role-big {
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+  
+  .certifications-org {
+    font-size: 0.85rem;
+  }
+  
+  .certifications-date {
+    font-size: 0.8rem;
+  }
+}
+
+/* Switch to column layout below 739px */
+@media (max-width: 739px) {
+  .certifications-container {
+    padding-top: 4rem;
+    margin: 1rem auto;
+  }
+  
+  .certifications-title {
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .certifications-row {
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0 1.5rem;
+    padding: 1.2rem;
+  }
+  
+  .certifications-left,
+  .certifications-center,
+  .certifications-right {
+    min-width: 100%;
+  }
+  
+  .certifications-center {
+    margin: 0.5rem 0;
+  }
+  
+  .certifications-right {
+    text-align: left;
+  }
+  
+  .certifications-role-big {
+    font-size: 1rem;
+  }
+  
+  .certifications-org {
+    font-size: 0.9rem;
+  }
+  
+  .certifications-date {
+    font-size: 0.85rem;
+  }
+  
+  .certifications-logo {
+    height: 30px;
+  }
+}
+/* Tablet Portrait (740px-900px) - Maintains row layout */
+@media (max-width: 900px) {
+  .certifications-row {
+    gap: 2rem;
+    margin: 0 2rem;
+  }
+  
+  .certifications-logo {
+    height: 25px;
+  }
+  .certifications-date{
+    font-size: 0.6rem;
+  }
+  .certifications-role-big{
+    font-size: 0.6rem;
+  }
+  .certifications-org{
+    font-size: 0.6;
+  }
+}
+
+/* Switch to column layout below 739px */
+@media (max-width: 739px) {
+  .certifications-container {
+    padding-top: 0rem;
+    margin: 1rem auto;
+  }
+  
+  .certifications-title {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    margin-top: 3rem;
+  }
+  
+  .certifications-row {
+    flex-direction: column;
+    gap: 0rem;
+    margin: 0 2rem;
+    padding: 1.5rem;
+  }
+  
+  .certifications-left,
+  .certifications-center,
+  .certifications-right {
+    min-width: 100%;
+    width: 100%;
+  }
+  
+  .certifications-right {
+    text-align: left;
+    margin-top: 0.5rem;
+  }
+  
+  .certifications-role-big {
+    font-size: 0.9rem;
+  }
+  
+  .certifications-org {
+    font-size: 0.8rem;
+  }
+  
+  .certifications-date {
+    font-size: 0.8rem;
+  }
+  
+  .certifications-logo {
+    height: 30px;
+  }
+}
+
+/* Small mobile adjustments below 480px */
+@media (max-width: 480px) {
+  .certifications-container {
+    padding-top: 5rem;
+    margin: 2rem auto;
+  }
+  
+  .certifications-title {
+    font-size: 1.6rem;
+  }
+  
+  .certifications-row {
+    margin: 0 1rem;
+    gap: 0rem;
+    padding: 1rem;
+  }
+  
+  .certifications-role-big {
+    font-size: 1.1rem;
+  }
+  
+  .certifications-org,
+  .certifications-date {
+    font-size: 0.9rem;
+  }
+  
+  .certifications-logo {
+    height: 32px;
+  }
+}

@@ -1,0 +1,139 @@
+.navbar {
+    display: flex;
+    position: fixed;
+    z-index: 2;
+
+    width: calc(100% - 10rem);
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 1rem 5rem;
+
+    background-color: #93dfff;
+
+}
+
+.myname {
+
+    align-self: center;
+
+    margin-right: 50px;
+
+    color: var(--color-primary);
+
+    font-family: var(--font-default);
+    font-size: 1.4rem;
+    font-weight: 600;
+    
+}
+
+.nav-links {
+
+    display: flex;
+
+    width:fit-content;
+
+    gap: 35px;
+
+    list-style: none;
+    text-decoration: none;
+
+    font-family: var(--font-default);
+    font-size: 1.2rem;
+    font-weight: 500;
+
+}
+
+.nav-links li {
+
+    cursor: pointer;
+
+}
+.nav-links li a {
+
+    text-decoration: none;
+
+    color: var(--color-primary);
+
+}
+
+@media screen and (max-width: 1200px) {
+    .navbar {
+        width: calc(100%);  /* Reduce side padding */
+        padding: 1rem 2rem;        /* Smaller padding */
+        box-sizing: border-box;
+    }
+    
+    .myname {
+        font-size: 1.2rem;         /* Slightly smaller name */
+        margin-right: 0px;        /* Reduced margin */
+    }
+    
+    .nav-links {
+        gap: 20px;                 /* Reduced gap between items */
+        font-size: 1rem;           /* Slightly smaller font */
+    }
+}
+
+/* Responsive styles - improved version */
+@media screen and (max-width: 768px) {
+    .navbar {
+        width: 100%;
+        padding: 0.8rem 1.5rem;
+        box-sizing: border-box; /* This includes padding in width calculation */
+    }
+    
+    .myname {
+        font-size: 0.8rem; /* Don't make it too small */
+        margin-right: 0px; /* Reduced from 50px */
+    }
+    
+    .nav-links {
+        gap: 10px; /* Reduced from 35px */
+        font-size: 0.6rem; /* More reasonable minimum size */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar {
+        padding: 0.6rem 0.8rem; /* Slightly smaller padding */
+        margin: 0;
+        width: 100%;
+    }
+    
+    .myname {
+        font-size: 0.6rem;
+        margin-right: 0px;
+    }
+    
+    .nav-links {
+        gap: 6px; /* Even smaller gap */
+        font-size: 0.5rem;
+    }
+}
+
+
+/* For very small screens */
+@media screen and (max-width: 360px) {
+    .navbar{
+        margin: 0;
+        width:100%;
+    }
+    .myname {
+        font-size: 0.5rem;
+    }
+    
+    .nav-links {
+        gap: 8px;
+        font-size: 0.5rem;
+    }
+
+}
+
+
+
+
+
+
+

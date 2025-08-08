@@ -1,0 +1,259 @@
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10%;
+    padding: 8rem 5rem 5rem 5rem ;
+
+}
+
+.about-left {
+
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Can grow to fill available space */
+
+    max-width: 400px;
+
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem;
+    
+    text-align: left;
+
+    background-color: var(--color-tertiary);
+    border-radius: 25px;
+
+}
+
+.profile-image {
+
+  object-fit: cover; /* Ensures the image covers the area without stretching  */
+
+  width: 160px;
+  height: 160px;
+  
+  margin-bottom: 1rem;
+
+  border-radius: 50%;
+  border: 3px solid var(--color-secondary);
+
+}
+
+.name {
+
+    margin-bottom: 0.5rem;
+
+    font-size: 2rem;
+    font-family: var(--font-secondary);
+    
+    color: var(--color-primary);
+    
+}
+
+.description {
+
+    line-height: 1.6;
+
+    font-family: var(--font-tertiary);
+    font-size: 1.1rem;
+    
+    color: var(--color-secondary);
+    
+}
+
+.about-right {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Can grow to fill available space */
+
+  min-width: 300px;
+  
+  align-items: flex-start; /* Keep items left-aligned */
+  justify-content: flex-start;
+  padding: 2rem; /* Add padding to give it breathing room */
+
+}
+
+
+.section-title {
+
+    margin-bottom: 1rem;
+
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    
+    color: var(--color-primary);
+    
+}
+
+.achievements-list li {
+
+  margin-bottom: 0.75rem;
+
+  font-family: var(--font-tertiary);
+  font-size: 1.2rem;
+
+  color: var(--color-secondary);
+    
+}
+
+.badges-section {
+
+  margin-top: 3rem;
+
+}
+
+.badges-list {
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+}
+
+.badge-icon{
+  
+  height: 100px;
+  width: auto; 
+  object-fit: cover; /* Ensures the image covers the area without stretching */
+}
+
+/* 1200px (Laptops) */
+@media (max-width: 1200px) {
+  .about-container {
+    padding: 6rem 3rem;
+  }
+  
+  .about-left {
+    max-width: 350px;
+    padding: 2rem;
+  }
+  
+  .profile-image {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .name {
+    font-size: 1.8rem;
+  }
+
+
+  .badge-icon{
+    height:60px;
+    width:auto;
+  }
+}
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+
+/* 768px (Tablets and below - switch to column) */
+@media (max-width: 768px) {
+  .about-container {
+    gap: 3rem;
+    padding: 4rem 2rem;
+  }
+
+  .about-left,
+  .about-right {
+    max-width: 100%;
+    box-sizing: border-box;
+    height: auto;
+  }
+
+  .profile-image{
+    height:100px;
+    width:100px;
+  }
+
+  .name{
+    font-size: 1.4rem;
+  }
+
+  .description{
+    font-size: 0.8rem;
+  }
+
+  .section-title{
+    font-size: 1.5rem;
+    padding-top: 4rem;
+  }
+
+  .achievements-list li{
+    font-size: 0.8rem;
+  }
+
+  .badge-icon{
+    height:60px;
+    width:auto;
+  }
+}
+
+/* 468px (Mobile optimization) */
+@media (max-width: 740px) {
+  .about-container {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 4rem 2rem;
+    align-items: center;
+  }
+
+  .about-left,
+  .about-right {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .name{
+    font-size: 1.3rem;
+  }
+
+  .description{
+    font-size: 0.9rem;
+  }
+
+  .about-right {
+    padding: 0;
+  }
+
+  .badge-icon{
+    height:40px;
+    width:auto;
+  }
+}
+
+/* 360px (Small mobile optimization) */
+@media (max-width: 360px) {
+  about-container {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 4rem 2rem;
+    align-items: center;
+  }
+
+  .about-left,
+  .about-right {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .name{
+    font-size: 1.3rem;
+  }
+
+  .description{
+    font-size: 0.9rem;
+  }
+
+  .about-right {
+    padding: 0;
+  }
+
+  .badge-icon{
+    height:40px;
+    width:auto;
+  }
+}

@@ -1,0 +1,359 @@
+.home-container {
+
+    display: flex;
+    flex-direction: row; /* it has text and 3d model */
+
+    height: 100vh; /* full height of the viewport */
+    width: 100%; /* full width of the viewport */
+
+    padding: 0 5rem; 
+    align-items: center;
+    justify-content: flex-start;
+    
+    z-index: 20;
+
+}
+
+.subtitle {
+
+    color: black;
+
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: 1.5rem;
+
+    z-index: 9999;
+
+}
+
+.title {
+
+    color: black;
+
+    font-family: "Do Hyeon", sans-serif;
+    font-size: 4rem;
+
+    z-index: 9999;
+    
+}
+
+.animation p {
+
+    border-right: solid black;
+    white-space: nowrap; /* when the line wraps (if there is too much text it will go to the next line) the type writer effect will get appied simulataneously to the next line*/
+    overflow: hidden; /* Hides text that is not yet "typed" (during animation) */
+    
+}
+
+.animation p:nth-child(1) /* p:nth-child(1) targets the first p tag inside the animation class ie Meet Me, */ {
+
+    width: 4.6em; /* final visible width of the text */
+
+    animation: type1 2s steps(10, end); 
+    /* uses type1 animation */
+    /* duration 2s */
+    /* Divides the animation into 10 fixed steps, mimicking typing letter by letter. */
+    animation-fill-mode: forwards; /* The cursor moves to next line after finishing - doesnt stay in the same line */
+
+}
+
+.animation p:nth-child(2) {
+    
+    width: 5.7em; /* final visible width of the text */
+
+    opacity: 0; /* initially hidden till animation starts */
+
+    animation: type2 4s steps(20, end); 
+    /* uses type2 animation */
+    /* duration 4s - width is longer so more duration */
+    /* Divides the animation into 20 fixed steps, mimicking typing letter by letter. */
+    animation-delay: 2s; /* starts after the first animation - duration 2s is done */
+    animation-fill-mode: forwards; /* The cursor moves to next line after finishing - doesnt stay in the same line */
+
+}
+
+.animation p:nth-child(3) {
+
+    width: 10.7em; /* final visible width of the text */
+
+    opacity: 0; /* initially hidden till animation starts */
+
+    animation: type3 5s steps(25, end), blink .5s step-end infinite alternate;
+    /* uses type3 animation */
+    /* duration 5s - width is longer so more duration */
+    /* Divides the animation into 25 fixed steps, mimicking typing letter by letter. */
+    animation-delay: 6s; /* starts after the second & first animation - duration 4s + 2s is done */
+    animation-fill-mode: forwards; /* The cursor blinks after finishing - stays in the same line */
+}
+
+.download-btn {
+
+    display: inline-block;
+
+    margin-top: 2rem;
+    padding: 0.8rem 1.6rem;
+
+    background-color: var(--color-tertiary);
+    color: var(--font-primary);
+
+    font-family: var(--font-default);
+    font-size: 1rem;
+
+    text-decoration: none;
+    border-radius: 8px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
+    animation-delay: 11s; /* Total of all typewriter animations (2+4+5=11s) */
+
+}
+
+.model-section {
+    display: flex;
+    flex-direction: column;
+
+    width: 50%;
+  
+    justify-content: center;
+    align-items: center;
+    margin-left: 10%;
+
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+    animation-delay: 12s; /* Same as button */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes type1 {
+    0% {
+        width: 0; /* starts with no width */
+    }
+
+    99.9% {
+        border-right: .15em solid black; /* shows the cursor */
+    }
+
+    100% {
+        border: none; /* removes the cursor at the end of animation */
+    }
+}
+
+@keyframes type2 {
+    0% {
+        width: 0; /* starts with no width */
+    }
+
+    1% {
+        opacity: 1; /* makes the text visible at the start of animation */
+    }
+
+    99.9% {
+        border-right: .15em solid black;
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        border: none;
+    }
+}
+
+@keyframes type3 {
+    0% {
+        width: 0; /* starts with no width */
+    }
+
+    1% {
+        opacity: 1; /* makes the text visible at the start of animation */
+    }
+
+    100% {
+        opacity: 1; /* keeps the text visible at the end of animation */
+    }
+}
+
+/* Note : type2 and type3 will not be visible if i remove opacity: 1 from the @keyframes, 
+but that is not the case for type1 because it has no opacity set in the animation p child(1) 
+but these to have initial opacity: 0 */
+
+@keyframes blink {
+    50% {
+        border-color: transparent; /* makes the cursor transparent at 50% */
+    }
+}
+
+@media screen and (max-width: 1023px) {
+  .home-container {
+    padding: 2rem 3rem; /* Added top/bottom padding */
+    justify-content: space-evenly; /* Better space distribution */
+    gap: 2rem; /* Consistent spacing between elements */
+  }
+
+  .title {
+    font-size: 1.5rem; /* More balanced size (2.3rem was too small) */
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    width: 100%; /* Prevent overflow */
+  }
+
+  .subtitle {
+    font-size: 1.3rem; /* Reduced from 1.7rem (better hierarchy) */
+    margin-bottom: 1.5rem;
+    width: 100%;
+  }
+
+  .animation p {
+    width: 100% !important;
+    white-space: normal; /* Allow text wrapping */
+    border-right: none; /* Remove typing cursor on mobile */
+    animation: none !important; /* Disable typewriter effect */
+    opacity: 1 !important; /* Force visible */
+  }
+
+  .model-section {
+    width: 50%; /* Slightly larger than 45% for visibility */
+    margin-left: 0;
+    align-self: center; /* Vertical alignment */
+    transform: scale(0.9); /* Slight scaling if model feels too large */
+    opacity: 1;
+    animation: none !important;
+  }
+
+  .download-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.6rem;
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .home-container {
+    padding: 1rem 2rem 2rem; /* top | sides | bottom */
+    align-items: center; /* Left-align all content */
+    text-align: left;
+    height: auto;
+    min-height: 100vh;
+    justify-content: flex-start; /* Content starts from top */
+  }
+
+  .title {
+    font-size: 1.6rem; /* Slightly reduced for mobile */
+    margin: 0 0 1rem 0; /* top | right | bottom | left */
+    line-height: 2;
+    width: 100%; /* Prevent overflow */
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+
+  .animation p {
+    width: 100% !important;
+    white-space: normal; /* Allow text wrapping */
+    border-right: none; /* Remove typing cursor on mobile */
+    animation: none !important; /* Disable typewriter effect */
+    opacity: 1 !important; /* Force visible */
+    margin-bottom: 0.5rem;
+  }
+
+  .download-btn {
+    margin: 1.5rem 0; /* top/bottom | left/right */
+    padding: 0.6rem 1rem;
+    width: auto; /* Reset fixed width */
+    align-self: flex-start; /* Left-align button */
+    font-size: 0.5rem;
+    animation: none !important; /* Skip fade-in delay */
+    opacity: 1 !important;
+  }
+
+  .model-section {
+    width: 100%; /* Full width */
+    order: 2; /* Ensure it appears below text */
+    align-self: center; /* Center only the model */
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .home-container {
+    flex-direction: column;
+    padding: 2rem 2rem 1rem; /* top | sides | bottom */
+
+    text-align: left; /* Ensure text alignment */
+    height: auto;
+    min-height: 100vh;
+    padding-top: 6rem; /* Reduced from 10rem */
+  }
+
+  .title {
+    font-size: 1.5rem; /* Slightly larger than before */
+    width: 100%; /* Prevent overflow */
+    padding-bottom: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    width: 100%;
+    padding-bottom: 1.5rem;
+  }
+
+  .animation {
+    width: 100%;
+  }
+
+  .animation p {
+    width: 100% !important;
+
+    white-space: normal; /* Allow text wrapping */
+    border-right: none; /* Remove typing cursor */
+    animation: none !important; /* Disable typewriter on mobile */
+    opacity: 1 !important; /* Force visible */
+    gap: 2rem;
+  }
+
+  .download-btn {
+    margin: 1.5rem 0;
+    padding: 0.5rem 0.7rem;
+    width: auto;
+    align-self: center; /* Left-align button */
+    font-size: 0.6rem;
+    justify-self: center;
+    animation: none !important; /* Skip fade-in delay */
+    opacity: 1 !important;
+  }
+
+  .model-section {
+    display:none;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .title {
+    font-size: 1rem; /* Minimal readable size */
+  }
+
+  .subtitle{
+    font-size: 0.9rem;
+  }
+
+  .animation p {
+    width: 100% !important; /* Force full-width lines */
+    white-space: normal; /* Allow text wrapping */
+    border-right: none; /* Disable cursor (avoids awkward breaks) */
+    animation: none !important;
+  }
+
+  .model-section{
+    display: none;
+  }
+  .download-btn {
+    text-align: center;
+    width: auto;
+  }
+}

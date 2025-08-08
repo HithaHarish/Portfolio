@@ -1,0 +1,267 @@
+.safari-tab {
+
+    width: 400px;
+    
+    border-radius: 10px;
+    border: 1px solid var(--safari-tab-border);
+
+    background: var(--safari-tab-bg);
+
+}
+
+.safari-header {
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+
+}
+
+.dots {
+
+    display: flex;
+    gap: 6px;
+
+}
+
+.dot {
+
+    display: inline-block; /* make dots inline-block - whicch means they can have width and height */
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+    
+}
+
+.dot.red {
+
+    background-color: var(--safari-tab-red);
+
+}
+
+.dot.yellow {
+
+    background-color: var(--safari-tab-yellow);
+
+}
+
+.dot.green {
+
+    background-color: var(--safari-tab-green);
+
+}
+
+.fake-search-bar {
+
+    flex: 1;
+    
+    max-width: 65%;
+
+    padding: 4px 12px;
+    
+    text-align: center;
+
+    font-size: 0.85rem;
+
+    border: 1px solid var(--safari-tab-border);
+    border-radius: 8px;
+    
+}
+
+.search-text {
+
+    font-family: var(--font-default);
+
+    color: white;
+
+}
+
+.safari-content .project-image {
+
+    width: 100%;
+    height: 200px;
+
+    margin-bottom: 1rem;
+    
+    border-radius: 0px;
+
+}
+
+.tab-title {
+  
+    margin-bottom: 0.5rem;
+    padding-left: 2rem;
+
+    color: var(--safari-tab-font-primary); /* Use primary color for project titles */
+
+    font-family: var(--font-default); /* Use primary font for project titles */
+    font-size: 1.1rem;
+
+    text-align: left;
+
+}
+
+.project-description {
+  
+    padding: 0 2rem;
+    margin-bottom: 2rem;
+
+    color: var(--safari-tab-font-secondary); /* Use secondary color for descriptions */
+
+    font-family: var(--font-tertiary); /* Use tertiary font for descriptions */
+    font-size: 0.75rem;
+    
+    line-height: 1.5;
+    text-align: justify;
+    
+}
+
+.safari-footer {
+
+    display: flex;
+    flex-direction: row;
+    
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: 2rem;
+    padding: 0 2rem;
+    
+
+}
+
+.tech-stack {
+
+    display: flex;
+
+    gap: 0.5rem;
+
+}
+
+.tech-icons {
+
+  width: 30px;
+  height: 30px;
+
+}
+
+.github-link {
+
+    color: var(--safari-tab-font-primary);
+
+}
+
+/* Large tablets (up to 1200px) */
+@media (max-width: 1200px) {
+  .safari-tab {
+    max-width: 450px;
+    width: 350px;
+    border-radius: 10px;
+  }
+  
+  .safari-content .project-image {
+    height: 220px;
+  }
+  
+  .tab-title {
+    font-size: 1.2rem;
+  }
+  
+  .project-description {
+    font-size: 0.8rem;
+  }
+}
+
+/* Small tablets (up to 780px) */
+@media (max-width: 780px) {
+  .safari-tab {
+    max-width: 270px;
+  }
+  
+  .safari-content .project-image {
+    height: 150px;
+    width: 100%;
+  }
+
+  .fake-search-bar{
+    padding: 0.1rem 0.1rem;
+  }
+
+  .search-text{
+    font-size: 0.7rem;
+  }
+
+  .dots{
+    gap: 3px;
+  }
+
+  .dot{
+    height: 5px;
+    width:5px;
+  }
+  
+  .tab-title {
+    padding-left: 1.5rem;
+    font-size: 0.7rem;
+  }
+  
+  .project-description {
+    padding: 0 1.5rem;
+    font-size: 0.5rem;
+  }
+
+  .tech-icons{
+    width: 20px;
+    height: 20px;
+  }
+  .github-link{
+    width:20px;
+    height:20px;
+  }
+}
+
+/* Large mobile (up to 468px) */
+@media (max-width: 468px) {
+  .safari-tab {
+    max-width: 340px;
+    border-radius: 8px;
+  }
+  
+  .safari-content .project-image {
+    height: 160px;
+  }
+  
+  .tab-title {
+    padding-left: 1rem;
+    font-size: 1rem;
+  }
+  
+  .project-description {
+    padding: 0 1rem;
+    font-size: 0.7rem;
+  }
+}
+
+/* Small mobile (up to 360px) */
+@media (max-width: 360px) {
+  .safari-tab {
+    max-width: 300px;
+  }
+  
+  .safari-content .project-image {
+    height: 140px;
+  }
+  
+  .tab-title {
+    font-size: 0.9rem;
+  }
+  
+  .project-description {
+    font-size: 0.65rem;
+  }
+}
