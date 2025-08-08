@@ -1,58 +1,79 @@
-const express = require('express'); // Web framework for building APIs and web servers
-const cors = require('cors'); // Middleware that allows cross-origin requests (e.g., frontend on one domain talking to a backend on another)
-const bodyParser = require('body-parser'); // Middleware for parsing JSON data from incoming requests
-const nodemailer = require('nodemailer'); // Module for sending emails
+// ================== Import Required Packages ==================
+const express = require('express');        // Web framework for building server APIs
+const cors = require('cors');              // Allows cross-origin requests (frontend ↔ backend)
+const bodyParser = require('body-parser'); // Parses JSON request bodies
+const nodemailer = require('nodemailer');  // For sending emails
+const path = require('path');              // Helps with file/directory paths
 
-const app = express(); // Initialize the Express app
+// ================== Initialize Express App ==================
+const app = express();
+
+// Load environment variables from .env file (for local dev only)
+// On hosting platforms, these vars are set in the dashboard, not .env
+require('dotenv').config(); // <-- added this so EMAIL_USER, EMAIL_PASS work locally too
+
+// Load PORT from environment variables, fallback to 3001 if not set
+// This allows platforms like Render, Railway, or Vercel to set their own port
 const PORT = process.env.PORT || 3001;
 
-// Middleware
-app.use(cors()); 
-// Allows frontend apps from other domains/ports to make requests to this server. 
-// For example, frontend on port 5173 can send requests to backend on port 5000
+// ================== Middleware Setup ==================
+// Enable CORS (important when frontend & backend are on different domains during development)
+app.use(cors());
 
-app.use(bodyParser.json()); 
-// To parse means to read something and convert it into a form your code can understand and use.
-// Parses incoming requests with JSON payloads and makes the data available in req.body by converting it to a JavaScript object.
+// Parse incoming JSON requests into `req.body`
+app.use(bodyParser.json());
 
-// Contact endpoint
+// ================== Serve Frontend Build ==================
+// Serve static files from frontend's dist folder (for production)
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+// For any unknown route, serve the frontend's index.html (important for React Router)
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/dist", "index.html"));
+});
+
+// ================== Contact Form API Endpoint ==================
 app.post('/contact', async (req, res) => {
-  const { name, email, message } = req.body; // Extract name, email, and message from the parsed request body
+  // Destructure data from request body
+  const { name, email, message } = req.body;
 
+  // Log the received message (optional, for debugging)
   console.log('Contact form submitted:');
   console.log('Name:', name);
   console.log('Email:', email);
   console.log('Message:', message);
 
-  // Set up email transporter using Gmail and app password
+  // ================== Configure Email Transporter ==================
+  // Uses environment variables for security (never hardcode credentials)
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS
+      user: process.env.EMAIL_USER, // Your Gmail address from .env or hosting env vars
+      pass: process.env.EMAIL_PASS  // Your Gmail App Password from .env or hosting env vars
     }
   });
 
-  // Email content and configuration
+  // Email content configuration
   const mailOptions = {
-    from: email, // Sender (user who submitted the form)
-    to: 'hitha22harish@gmail.com', // Your email address (receiver)
+    from: email, // Sender is the user filling the form
+    to: 'hitha22harish@gmail.com', // Your receiving email
     subject: `A Portfolio Message from ${name}`,
-    text: `Someone treid to connect with you, Wanna See who ?:\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}`
+    text: `Someone tried to connect with you:\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}`
   };
 
-  // Try to send the email
   try {
-    await transporter.sendMail(mailOptions); // Sends the email using the transporter
-    res.status(200).json({ message: 'I got your message, I\'ll get back to you asap!' }); // Success response
+    // Send the email
+    await transporter.sendMail(mailOptions);
+    res.status(200).json({ message: 'I got your message, I\'ll get back to you asap!' });
   } catch (error) {
+    // Handle errors in sending email
     console.error('Error sending email:', error);
-    res.status(500).json({ message: 'Oops, I didnt get your message ! Try Again' }); // Error response
+    res.status(500).json({ message: 'Oops, I didn’t get your message! Try again.' });
   }
 });
 
-// Start the server
+// ================== Start the Server ==================
+// Added "0.0.0.0" so server works on hosting platforms (Render, Railway, etc.)
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);
 });
-
