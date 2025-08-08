@@ -4,7 +4,7 @@ const bodyParser = require('body-parser'); // Middleware for parsing JSON data f
 const nodemailer = require('nodemailer'); // Module for sending emails
 
 const app = express(); // Initialize the Express app
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 // Middleware
 app.use(cors()); 
@@ -28,8 +28,8 @@ app.post('/contact', async (req, res) => {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'hitha22harish@gmail.com', // Replace with your Gmail address
-      pass: 'dwam hybz uxnr giot'     // Replace with your 16-character Gmail App Password
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS
     }
   });
 
@@ -52,6 +52,7 @@ app.post('/contact', async (req, res) => {
 });
 
 // Start the server
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`); // Logs the server URL once running
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running on port ${PORT}`);
 });
+
