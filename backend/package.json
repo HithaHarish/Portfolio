@@ -4,7 +4,6 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "build": "NODE_OPTIONS='--max-old-space-size=2048' cd ../frontend && npm install && npm run build && cd ../backend && npm install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,6 +13,7 @@
   "dependencies": {
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
     "express": "^5.1.0",
     "nodemailer": "^7.0.5"
   }
