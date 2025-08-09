@@ -37,7 +37,10 @@ export default defineConfig({
     host: true, // Avoid network issues
     port: 3000,
     strictPort: true, // No random port switching
-    open: false // Prevent browser tab explosions
+    open: false, // Prevent browser tab explosions
+    headers: {
+      'Content-Type': 'application/javascript'
+    }
   },
 
   // Safe optimization
