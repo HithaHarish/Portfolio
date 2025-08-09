@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Stars } from '@react-three/drei';
-import './styles/NightSky.css'; 
+import '../styles/NightSky.css'; 
 
 const NightSky = () => {
   return (

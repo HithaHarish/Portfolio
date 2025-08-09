@@ -1,11 +1,38 @@
-/* Prevent any scrollbars globally */
-html,
-body {
+/* === Manual: Light Mode === */
+:root {
+
+  /* Font Colors */
+  --color-primary: #323643; 
+  --color-secondary: #606470; /* Primary color for titles */
+  --color-tertiary: #93dfffd6; /* Secondary color for text */
+
+  /* Background Color */
+  --bg-primary: #f7f7f78c;
+  --bg-secondary: #606470;
+
+
+    /* Default Font */
+  --font-default: "Open Sans", sans-serif; /* Default font for body text */
+  --font-primary: "LXGW Marker Gothic", sans-serif; /* Primary font for titles */
+  --font-secondary: "Rajdhani", sans-serif; /* Secondary font for content */
+  --font-tertiary: "Roboto Mono", sans-serif; /* Tertiary font for additional content */
+
+  /* Safari Tab Background */
+  --safari-tab-bg: rgb(33, 33, 33); /* Semi-transparent white for Safari tab background */
+  --safari-tab-border: rgb(59, 59, 59); /* Border color for Safari tab */
+  --safari-tab-red: #ff605c;
+  --safari-tab-yellow: #ffbd44;
+  --safari-tab-green: #00ca4e;
+  --safari-tab-font-primary: #93DEFF; /* Font color for Safari tab */
+  --safari-tab-font-secondary: #F7F7F7; /* Secondary font color for Safari tab */
+}
+
+/* === Apply to whole page === */
+html, body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  /* disables scrollbars */
+  overflow-x: hidden; /* disables (X) horizontal scroll */
   width: 100%;
   height: 100%;
-  box-sizing: border-box;
+  background-color: var(--bg-primary);
 }
