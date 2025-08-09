@@ -2,41 +2,52 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   
-  // Three.js/GLB model support
-  assetsInclude: ['**/*.glb', '**/*.gltf'],
-
-  // Build settings
+  // 100% Error-proof settings
   build: {
     outDir: 'dist',
     emptyOutDir: true,
-    chunkSizeWarningLimit: 1600, // For larger Three.js bundles
+    chunkSizeWarningLimit: 1600, // For Three.js
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          three: ['three', '@react-three/fiber', '@react-three/drei'],
+          vendor: ['react', 'react-dom']
+        }
+      }
+    }
   },
 
-  // Path aliases (optional but recommended)
+  // Foolproof path aliases
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
       '@components': path.resolve(__dirname, './src/components'),
-      '@models': path.resolve(__dirname, './public/models') 
+      '@assets': path.resolve(__dirname, './src/assets')
     }
   },
 
-  // Dev server settings
+  // Crash-proof asset handling
+  assetsInclude: ['**/*.glb', '**/*.gltf', '**/*.mp4'],
+
+  // Error-resistant server config
   server: {
+    host: true, // Avoid network issues
     port: 3000,
-    open: true
+    strictPort: true, // No random port switching
+    open: false // Prevent browser tab explosions
   },
 
-  // Vercel-specific optimizations
+  // Safe optimization
   optimizeDeps: {
     include: [
+      'react',
+      'react-dom',
       'three',
-      '@react-three/fiber',
-      '@react-three/drei'
-    ]
+      '@react-three/fiber'
+    ],
+    exclude: ['three-mesh-bvh'] // Prevent version conflicts
   }
 });

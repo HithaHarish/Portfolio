@@ -11,22 +11,31 @@
     "vercel-build": "npm run build"
   },
   "dependencies": {
+    "@react-three/drei": "9.122.0",
+    "@react-three/fiber": "8.18.0",
+    "@vercel/node": "^5.3.11",
+    "cors": "^2.8.5",
+    "esbuild": "0.25.0",
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.8",
+    "path": "0.12.7",
+    "path-to-regexp": "6.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "three": "^0.162.0",
-    "@react-three/fiber": "^8.14.0",
-    "@react-three/drei": "^9.94.3",
-    "@vercel/node": "^2.0.0",
-    "express": "^4.18.2",
-    "cors": "^2.8.5",
-    "nodemailer": "^6.9.8"
+    "react-icons": "^5.5.0",
+    "three": "0.162.0",
+    "three-mesh-bvh": "0.8.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.2.1",
-    "vite": "^5.1.0",
-    "gltf-pipeline": "^3.0.5"
+    "@vitejs/plugin-react": "4.7.0",
+    "gltf-pipeline": "^3.0.5",
+    "vite": "7.1.1"
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "resolutions": {
+    "esbuild": "0.25.0",
+    "path-to-regexp": "6.2.1"
   }
 }

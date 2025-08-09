@@ -1,4 +1,3 @@
-'use client';
 import { useEffect } from 'react';
 import fluidCursor from '../hooks/use-FluidCursor';
 import '../styles/FluidCursor.css'; // <- Import the styling
