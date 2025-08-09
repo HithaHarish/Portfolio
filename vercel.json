@@ -40,7 +40,6 @@
       }
     },
     
-    // Projects images route
     {
       "src": "/Projects/images/(.*)",
       "headers": {
@@ -48,14 +47,12 @@
       }
     },
     
-    // Fallback to index.html for SPAs
     {
       "src": "/(.*)",
       "dest": "/index.html"
     }
   ],
   "rewrites": [
-    // Physical path mappings
     { "source": "/icons/(.*)", "destination": "/public/assets/icons/$1" },
     { "source": "/models/(.*)", "destination": "/public/assets/models/$1" },
     { "source": "/profileimage.png", "destination": "/public/assets/profileimage.png" },
