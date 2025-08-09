@@ -20,9 +20,9 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/$1",
+      "dest": "/",
       "headers": {
-        "Cache-Control": "s-maxage=3600, stale-while-revalidate"
+        "Cache-Control": "public, max-age=3600, stale-while-revalidate"
       }
     }
   ]
