@@ -7,53 +7,63 @@
       "config": {
         "distDir": "dist"
       }
-    },
-    {
-      "src": "api/**/*.js",
-      "use": "@vercel/node"
     }
   ],
   "routes": [
+    // Icons route (SVG files)
     {
-      "src": "/api/(.*)",
-      "dest": "/api/$1",
-      "headers": {
-        "Content-Type": "application/json"
-      }
-    },
-    {
-      "src": "/icons/(.*).svg",
+      "src": "/icons/(.*)",
       "headers": {
         "Content-Type": "image/svg+xml",
         "Cache-Control": "public, max-age=31536000, immutable"
       }
     },
+    
+    // Models route (GLB/JPEG)
     {
-      "src": "/(.*).js",
-      "headers": {
-        "Content-Type": "application/javascript",
-        "Cache-Control": "public, max-age=31536000, immutable"
-      }
-    },
-    {
-      "src": "/(.*).css",
-      "headers": {
-        "Content-Type": "text/css",
-        "Cache-Control": "public, max-age=31536000, immutable"
-      }
-    },
-    {
-      "src": "/three/(.*)",
+      "src": "/models/(.*)",
       "headers": {
         "Cache-Control": "public, max-age=31536000, immutable"
       }
     },
+    
+    // Profile image route
+    {
+      "src": "/profileimage.png",
+      "headers": {
+        "Content-Type": "image/png",
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    
+    // Certifications route
+    {
+      "src": "/Certifications/(.*)",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    
+    // Projects images route
+    {
+      "src": "/Projects/images/(.*)",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    
+    // Fallback to index.html for SPAs
     {
       "src": "/(.*)",
-      "dest": "/index.html",
-      "headers": {
-        "Cache-Control": "public, max-age=0, must-revalidate"
-      }
+      "dest": "/index.html"
     }
+  ],
+  "rewrites": [
+    // Physical path mappings
+    { "source": "/icons/(.*)", "destination": "/public/assets/icons/$1" },
+    { "source": "/models/(.*)", "destination": "/public/assets/models/$1" },
+    { "source": "/profileimage.png", "destination": "/public/assets/profileimage.png" },
+    { "source": "/Certifications/(.*)", "destination": "/public/assets/Certifications/logoss/$1" },
+    { "source": "/Projects/images/(.*)", "destination": "/public/assets/Projects/images/$1" }
   ]
 }
