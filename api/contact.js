@@ -1,12 +1,12 @@
 // api/contact.js
-import nodemailer from 'nodemailer';
+import nodemailer from 'nodemailer';  // library to send mails 
 
-const RATE_LIMIT_WINDOW = 15 * 60 * 1000; // 15 minutes
-const RATE_LIMIT_MAX = 3; // max requests per IP per window
+const RATE_LIMIT_WINDOW = 15 * 60 * 1000; // time period 
+const RATE_LIMIT_MAX = 3; // In 15 minutes one IP address can send only request a maximum of 3 times they cant after that
 
 // In-memory store (best-effort; serverless instances are stateless across cold starts)
-global.__rateLimitStore = global.__rateLimitStore || new Map();
-const rateLimitStore = global.__rateLimitStore;
+global.__rateLimitStore = global.__rateLimitStore || new Map(); // if it exists use it or create a new map
+const rateLimitStore = global.__rateLimitStore; 
 
 function getClientIP(req) {
   const xff = req.headers['x-forwarded-for'];
