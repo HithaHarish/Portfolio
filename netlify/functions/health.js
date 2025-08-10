@@ -1,4 +1,9 @@
-// api/health.js
-export default function handler(req, res) {
-  res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
-}
+export const handler = async (event, context) => {
+  return {
+    statusCode: 200,
+    body: JSON.stringify({
+      status: 'ok',
+      timestamp: new Date().toISOString()
+    }),
+  };
+};
