@@ -1,2 +1,14 @@
-api/contact.js
-api/health.js
+{
+  "version": 2,
+  "builds": [
+    { "src": "package.json", "use": "@vercel/static-build", "config": { "distDir": "dist" } }
+  ],
+  "routes": [
+    { "src": "/icons/(.*)", "headers": { "Content-Type": "image/svg+xml", "Cache-Control": "public, max-age=31536000, immutable" } },
+    { "src": "/models/(.*)", "headers": { "Cache-Control": "public, max-age=31536000, immutable" } },
+    { "src": "/assets/(.*)", "headers": { "Cache-Control": "public, max-age=31536000, immutable" } },
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "/index.html" }
+  ]
+}
+
