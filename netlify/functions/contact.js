@@ -22,7 +22,7 @@ export const handler = async (event) => {
     await transporter.sendMail({
       from: email,
       to: 'hitha22harish@gmail.com',
-      subject: `New message from ${name}`,
+      subject: `Hitha, ${name} tried to connect with you. Check it , could be important !`,
       text: message,
     });
 
