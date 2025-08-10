@@ -17,46 +17,15 @@
         "Cache-Control": "public, max-age=31536000, immutable"
       }
     },
-    
     {
       "src": "/models/(.*)",
       "headers": {
         "Cache-Control": "public, max-age=31536000, immutable"
       }
     },
-    
-    {
-      "src": "/profileimage.png",
-      "headers": {
-        "Content-Type": "image/png",
-        "Cache-Control": "public, max-age=31536000, immutable"
-      }
-    },
-    
-    {
-      "src": "/Certifications/(.*)",
-      "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable"
-      }
-    },
-    
-    {
-      "src": "/Projects/images/(.*)",
-      "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable"
-      }
-    },
-    
     {
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ],
-  "rewrites": [
-    { "source": "/icons/(.*)", "destination": "/public/assets/icons/$1" },
-    { "source": "/models/(.*)", "destination": "/public/assets/models/$1" },
-    { "source": "/profileimage.png", "destination": "/public/assets/profileimage.png" },
-    { "source": "/Certifications/(.*)", "destination": "/public/assets/Certifications/logoss/$1" },
-    { "source": "/Projects/images/(.*)", "destination": "/public/assets/Projects/images/$1" }
   ]
 }
