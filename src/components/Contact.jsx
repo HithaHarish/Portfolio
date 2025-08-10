@@ -62,7 +62,7 @@ export default function Contact() {
               value={formData.name}
               onChange={handleChange}
               required
-               disabled={isSubmitting} // NEW: Disable during submission
+               disabled={isSubmitting} 
             />
 
             <label>Email</label>
@@ -73,7 +73,7 @@ export default function Contact() {
               value={formData.email}
               onChange={handleChange}
               required
-               disabled={isSubmitting} // NEW: Disable during submission
+               disabled={isSubmitting} /
             />
 
             <label>Your Message</label>
@@ -84,13 +84,13 @@ export default function Contact() {
               value={formData.message}
               onChange={handleChange}
               required
-               disabled={isSubmitting} // NEW: Disable during submission
+               disabled={isSubmitting} 
             />
 
             <button 
               className="submit" 
               type="submit"
-              disabled={isSubmitting} // NEW: Disable during submission
+              disabled={isSubmitting} 
             >
               {isSubmitting ? 'Sending...' : 'Send'} {/* NEW: Loading state */}
             </button>
