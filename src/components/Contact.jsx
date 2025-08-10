@@ -8,15 +8,12 @@ export default function Contact() {
     message: ''
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
   const handleChange = (e) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -25,16 +22,11 @@ export default function Contact() {
       });
 
       const data = await response.json();
-      // NEW: Better error handling (keeps your original alert messages)
-      if (!response.ok) throw new Error(data.message || 'Failed to send');
-      
       alert(data.message);
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
       console.error('Error sending message:', error);
-      alert(error.message || 'Oops, I didnt get your message ! Try Again');
-    } finally {
-      setIsSubmitting(false); // NEW: Reset loading state
+      alert('Oops, I didnt get your message ! Try Again');
     }
   };
 
@@ -62,7 +54,6 @@ export default function Contact() {
               value={formData.name}
               onChange={handleChange}
               required
-               disabled={isSubmitting} 
             />
 
             <label>Email</label>
@@ -73,7 +64,6 @@ export default function Contact() {
               value={formData.email}
               onChange={handleChange}
               required
-               disabled={isSubmitting} 
             />
 
             <label>Your Message</label>
@@ -84,16 +74,9 @@ export default function Contact() {
               value={formData.message}
               onChange={handleChange}
               required
-               disabled={isSubmitting} 
             />
 
-            <button 
-              className="submit" 
-              type="submit"
-              disabled={isSubmitting} 
-            >
-              {isSubmitting ? 'Sending...' : 'Send'} {/* NEW: Loading state */}
-            </button>
+            <button className="submit" type="submit">Send</button>
           </form>
         </div>
       </div>
