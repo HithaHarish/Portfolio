@@ -73,7 +73,7 @@ export default function Contact() {
               value={formData.email}
               onChange={handleChange}
               required
-               disabled={isSubmitting} /
+               disabled={isSubmitting} 
             />
 
             <label>Your Message</label>
