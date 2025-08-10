@@ -14,14 +14,14 @@ export const handler = async (event) => {
     const transporter = nodemailer.createTransport({
       service: 'gmail', // or your SMTP host
       auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
+        user: 'hitha22harish@gmail.com',
+        pass: 'aqcx aosl tjqv zvfz',
       },
     });
 
     await transporter.sendMail({
       from: email,
-      to: process.env.RECEIVER_EMAIL,
+      to: 'hitha22harish@gmail.com',
       subject: `New message from ${name}`,
       text: message,
     });
