@@ -8,6 +8,9 @@ export const handler = async (event, context) => {
   };
 };
 
+// https://hithaharishportfolio.netlify.app/netlify/functions/health open this site to check if backend is working
+// . is required for live access - netlify's format to access backend 
+
 //this file is used to check if the backend is running
 // Adding this ensures conact runs only if health runs 
 //const res = await fetch(`${process.env.BASE_URL}/api/health`);
