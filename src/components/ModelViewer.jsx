@@ -1,24 +1,40 @@
 import React, { Suspense, useRef } from "react";
+// - Suspense for lazy loading components
+// - useRef for creating a reference to a component or DOM node
 import { Canvas } from "@react-three/fiber";
+// Import Canvas component from @react-three/fiber — this is the 3D rendering surface in React
 import { OrbitControls, useGLTF, Environment, Html } from "@react-three/drei";
+// - OrbitControls for mouse/touch camera controls
+// - useGLTF for loading 3D models in .gltf/.glb format
+// - Environment for adding realistic lighting environments
+// - Html for rendering regular HTML elements inside a 3D scene
 import * as THREE from "three";
+// Import all of THREE.js — the core 3D graphics library that powers react-three-fiber
 
-function Model() {
+function Model() { //responsible for loading and displaying the GLTF 3D model
   const gltf = useGLTF("/models/Untitled123.glb");
+  // Load the 3D model from the "public/models/Untitled123.glb" path
+  // useGLTF returns an object with scene, nodes, and materials from the model
   useGLTF.preload("/models/Untitled123.glb");
+  // Preload the model before it is needed — improves performance and removes loading lag
 
   return (
-    <primitive 
+    <primitive //is used when you already have a THREE.js object (here, gltf.scene)
       object={gltf.scene}
       rotation={[0, -Math.PI / 4, 0]}  
       scale={[0.3, 0.3, 0.3]}
       position={[0, -0.2, 0]}
+      // rotation={[x, y, z]} — rotates the model in radians (here, y rotation is -45 degrees)
+      // scale={[x, y, z]} — scales the model down to 30% in all directions
+      // position={[x, y, z]} — moves the model in 3D space
     />
   );
 }
 
-function Loader() {
+function Loader() { // Loader component — shown while the model is loading
   return (
+    // Html from drei lets you place normal HTML inside the 3D scene
+    // "center" means it’s centered at its 3D position
     <Html center>
       <div className="loading-spinner">
         <div className="spinner"></div>
