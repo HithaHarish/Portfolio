@@ -65,13 +65,14 @@ export default function Experience() {
       ))}
 
       {/* Floating phone iframe */}
-      {hoveredExperience && (
+      {hoveredExperience /* not null */ && /* then display */ (
+      //In react, {condition && ( ... )} - “Only render the part inside ( ... ) if condition is truthy.”
         <div
           className="floating-phone"
           style={{ top: mousePos.y, left: mousePos.x }}
         >
           <iframe
-            src={hoveredExperience}
+            src={hoveredExperience} // hovered website is set to the website link, so src points to the website
             title="Website Preview"
             className="phone-iframe"
           ></iframe>
