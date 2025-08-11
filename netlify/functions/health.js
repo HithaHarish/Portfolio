@@ -7,3 +7,14 @@ export const handler = async (event, context) => {
     }),
   };
 };
+
+//this file is used to check if the backend is running
+// Adding this ensures conact runs only if health runs 
+//const res = await fetch(`${process.env.BASE_URL}/api/health`);
+//const health = await res.json();
+//if (health.status !== 'ok') {
+ // return {
+    //statusCode: 503,
+    //body: JSON.stringify({ error: 'Service Unavailable' }),
+ // };
+//If health fails due to server issues, contact will also because backend is not alive
