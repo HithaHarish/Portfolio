@@ -32,7 +32,8 @@ export default function Contact() {
       const data = await response.json(); //reply from backend
       alert(data.message);
       setFormData({ name: '', email: '', message: '' }); // for new message
-    } catch (error) {
+    } 
+    catch (error) {
       console.error('Error sending message:', error); //if error arised, enters here
       alert('Oops, I didnt get your message ! Try Again');
     }
