@@ -22,7 +22,7 @@ export default function Achievements() {
         <ul className="description">
 
           {descriptionPoints.map((point, index) => ( // Using map to iterate over descriptionPoints
-            <li key={index}>{point}</li>
+            <li key={index}>{point}</li> // print each point as an item in unordered list - bulleted not numbered
           ))}
 
         </ul>
