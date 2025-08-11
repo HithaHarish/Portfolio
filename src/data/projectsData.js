@@ -17,7 +17,7 @@ const projects = [
   },
   {
     title: "Virtual Fashion Assistant - Female (Ongoing)",
-    image: "/ComingSoon.jpg",
+    image: "/assets/Projects/images/LookWise.jpeg",
     description: "A Flutter app that provides users with customized outfit suggestions based on their body parameters. It integrates data from various e-commerce platforms via Google Custom Search Engine, offers weather-based styling options using OpenWeather, offers restyling closet options and includes a chatbot for real-time fashion advice.",
     techStack: [
       { name:"Flutter", icon: "/icons/Flutter.svg" },
