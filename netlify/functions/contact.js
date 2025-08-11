@@ -21,15 +21,15 @@ export const handler = async (event) => { //async indicates the function can use
       //transporter is a SMTP Client configured to send emails
       service: 'gmail', // or your SMTP host
       auth: {
-        user: 'hitha22harish@gmail.com',
-        pass: 'aqcx aosl tjqv zvfz',
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     });
 
     await transporter.sendMail({
       // await pauses the javascript here so it doesnt move to return before the reponse is received
       from: email,
-      to: 'hitha22harish@gmail.com',
+      to: process.env.EMAIL_USER,
       subject: `Hitha, ${name} tried to connect with you. Check it , could be important !`,
       text: message,
     });
