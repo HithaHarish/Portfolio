@@ -12,5 +12,5 @@ This is a personal portfolio website built using React with Vite for fast develo
 - **Three.js** — 3D rendering in the browser  
 - **Animations** — typewriter effect, fluid cursor, iframes for websites
 
-while deploying, I have made in serverless using netlify functions.
+while deploying, I have made it serverless using netlify functions.
 
