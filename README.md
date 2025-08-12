@@ -16,5 +16,8 @@ This is a personal portfolio website built using React with Vite for fast develo
 while deploying, I have made it serverless using netlify functions.
 
 /netlify/functions/contact is serverless backend 
+---
 /netlify/functions/health can be used to check if the backend is working fine
+---
 /backend/index has Node + Express App for backend Email logic 
+---
