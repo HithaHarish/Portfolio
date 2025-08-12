@@ -30,8 +30,8 @@ export const handler = async (event) => { //async indicates the function can use
       // await pauses the javascript here so it doesnt move to return before the reponse is received
       from: email,
       to: process.env.EMAIL_USER,
-      subject: `Hitha, ${name} tried to connect with you. Check it , could be important !`,
-      text: message,
+      subject: `Hitha, ${name} tried to connect with you.`,
+      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
     });
 
     // So, this await function will return a Promise that will either be resolved or rejected
